@@ -54,7 +54,7 @@ def decide_win_lose_each_round( user: str,  computer: str) -> str:
         (user == "scissor" and computer == "paper")
     ) else "lose"
 
-def main():
+def play(player_name):
     game_explain()
     rounds = get_rounds()
     user_score = 0
@@ -73,7 +73,7 @@ def main():
         if user_score < computer_score
         else "It's a draw! Better Luck next time!")
     print("You total score is ", user_score)
-
+    return user_score
 
 if __name__ == "__main__":
-    main()
+    play("k")
