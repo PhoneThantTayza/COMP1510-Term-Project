@@ -23,7 +23,7 @@ In-memory scoreboard format:
 from games import load_game
 from scoreboard import load_scoreboard, save_scoreboard
 
-GAMES = ("example_game","hangman", "rock_paper_scissors")
+GAMES = ("example_game","hangman", "rock_paper_scissors", "tic_tac_toe")
 
 
 def game_title(module_name):
