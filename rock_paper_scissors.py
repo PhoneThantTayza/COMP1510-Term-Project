@@ -74,6 +74,3 @@ def play(player_name):
         else "It's a draw! Better Luck next time!")
     print("You total score is ", user_score)
     return user_score
-
-if __name__ == "__main__":
-    play("k")
