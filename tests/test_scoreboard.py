@@ -24,3 +24,16 @@ def test_load_scoreboard_survives_a_broken_file(tmp_path):
     target = tmp_path / "broken.json"
     target.write_text("{not json at all")
     assert load_scoreboard(str(target)) == {}
+
+
+def test_load_scoreboard_survives_a_missing_file(tmp_path):
+    """Start with an empty scoreboard when no saved file exists."""
+    assert load_scoreboard(str(tmp_path / "missing.json")) == {}
+
+
+def test_load_scoreboard_rejects_non_dictionary_json(tmp_path):
+    """Valid JSON must still contain a dictionary."""
+    target = tmp_path / "wrong_shape.json"
+    for contents in ("[]", "null", "42", '"text"'):
+        target.write_text(contents, encoding="utf-8")
+        assert load_scoreboard(str(target)) == {}
